@@ -27,9 +27,9 @@ class PasswordManager:
         self.main.pack(side='right', fill='both', expand=True)
 
         tk.Label(self.sidebar, text="🔐 Vault", font=('Arial', 12, 'bold')).pack(pady=10)
-        for label, type_ in [("\ud83d\udd11 Login", 'login'), ("\ud83d\udcf6 Wi-Fi", 'wifi'),
-                             ("\ud83e\udde9 PAT Token", 'pat_token'), ("\ud83d\udda5\ufe0f SSH Key", 'ssh_key'),
-                             ("\ud83d\udcdc Software Key", 'software_key')]:
+        for label, type_ in [("Login", 'login'), ("Wi-Fi", 'wifi'), ("PAT Token", 'pat_token'),
+                             ("SSH Key", 'ssh_key'), ("Software Key", 'software_key')]:
+
             b = tk.Button(self.sidebar, text=label, anchor='w', command=lambda t=type_: self.change_type(t))
             b.pack(fill='x')
 
@@ -53,7 +53,8 @@ class PasswordManager:
 
     def change_type(self, entry_type):
         self.current_type = entry_type
-        self.title_label.config(text=f"{self.icon(entry_type)} {entry_type.title()} Entries")
+        self.title_label.config(text=f\"{self.current_type.title()} Entries\")
+
         self.render_table()
 
     def icon(self, t):
