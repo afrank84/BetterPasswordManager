@@ -53,8 +53,7 @@ class PasswordManager:
 
     def change_type(self, entry_type):
         self.current_type = entry_type
-        self.title_label.config(text=f\"{self.current_type.title()} Entries\")
-
+        self.title_label.config(text=f"{self.current_type.title()} Entries")
         self.render_table()
 
     def icon(self, t):
